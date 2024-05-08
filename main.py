@@ -41,7 +41,7 @@ while True:
                 for row in result:
                     print(row)
             if input("Proceed? y/n") == 'n':
-                break;
+                break
             offset += limit
     if choice == '2':
         name = input("Ievadi vārdu: ")
@@ -86,10 +86,26 @@ while True:
         # Parādīt vidējo vārdu skaitu pēc dzimuma
         # https://www.w3schools.com/sql/sql_avg.asp (AVG)
         # https://www.w3schools.com/sql/sql_where.asp (WHERE)
+        cursor.execute("SELECT AVG(amount) FROM names WHERE gender=?", (gender,))
+        result = cursor.fetchall()
+
+        
+
+        for row in result:
+            print(row)
+            
+
     elif choice == '6':
         amount = input("Ievadi daudzumu: ")
         # Parādīt vārdus pēc daudzuma
         # https://www.w3schools.com/sql/sql_where.asp (WHERE)
+        cursor.execute("SELECT * FROM names WHERE amount=?", (amount,))
+        result = cursor.fetchall()
+
+        for row in result:
+            print(row)
+            
+
     elif choice == '7':
         break
     else:
